@@ -1,3 +1,12 @@
+/*
+ * @Author: Ricardo
+ * @Date: 2021-06-30 11:04:56
+ * @LastEditTime: 2021-06-30 11:20:32
+ * @LastEditors: Ricardo
+ * @Description:
+ * @FilePath: \cesium-in-use\src\router\index.js
+ * 没有bug就没有伤害~
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
@@ -10,6 +19,11 @@ const routes = [
     path: '/',
     name: 'ThreeMap',
     component: ThreeMap,
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
   },
   {
     path: '/about',

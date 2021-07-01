@@ -1,11 +1,21 @@
+/*
+ * @Author: Ricardo
+ * @Date: 2021-06-30 11:04:56
+ * @LastEditTime: 2021-07-01 09:53:58
+ * @LastEditors: Ricardo
+ * @Description:
+ * @FilePath: \cesium-in-use\vue.config.js
+ * 没有bug就没有伤害~
+ */
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const WebpackBar = require('webpackbar')
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/demo/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   configureWebpack: {
     devServer: {
       open: process.platform === 'darwin',
-      // host: '127.0.0.1',
+      host: '0.0.0.0',
       port: 9099,
       https: false,
       hotOnly: false,
@@ -13,6 +23,10 @@ module.exports = {
       // before: app => {}
     },
     plugins: [
+      new WebpackBar({
+        name: 'cesium练手',
+        color: '#f40',
+      }),
       new CopyWebpackPlugin([
         {
           from: 'node_modules/cesium/Build/Cesium/Workers',
